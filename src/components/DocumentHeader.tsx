@@ -37,8 +37,18 @@ const DocumentHeader: React.FC<DocumentHeaderProps> = ({ data })  => {
       <div className="flex items-start justify-between">
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
-          <div className="w-24 h-20 bg-document-header rounded-lg flex items-center justify-center">
-            <div className="text-white font-bold text-xl">M&M</div>
+          <div className="w-24 h-20 rounded-lg flex items-center justify-center">
+            <img 
+              src="/mym_logo.png" 
+              alt="Logo M&M" 
+              className="max-w-full max-h-full object-contain"
+              onError={(e) => {
+                // Si el logo no carga, muestra el texto como fallback
+                const target = e.target as HTMLElement;
+                target.style.display = 'none';
+                target.parentElement!.innerHTML = '<div class="text-document-header font-bold text-xl">M&M</div>';
+              }}
+            />
           </div>
           <div className="text-sm text-document-text">
             <div className="font-bold text-lg">{empresa.RAZONSOC}</div>
@@ -51,7 +61,7 @@ const DocumentHeader: React.FC<DocumentHeaderProps> = ({ data })  => {
         
         {/* Order Info */}
         <div className="text-right">
-          <div className="bg-document-header text-white px-4 py-2 font-bold text-lg rounded">
+          <div className="bg-document-border text-document-text px-4 py-2 font-bold text-lg rounded">
             ORDEN DE COMPRA
           </div>
           <div className="mt-2 text-xl">
