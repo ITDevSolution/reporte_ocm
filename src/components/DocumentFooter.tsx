@@ -10,8 +10,8 @@ const DocumentFooter = () => {
         <div className="text-xs space-y-1">
           <div>M&M Repuestos y Servicios S.A., podrá aplicar penalidad por incumplimiento de entrega en la fecha acordada, pudiendo reservarse el derecho sobre la aceptación del servicio o producto. No obstante el proveedor deberá hacer los esfuerzos necesarios a su cargo para la realización del objeto contratado, sin que esto signifique en la fecha definida en la orden de compra.</div>
           <div className="mt-2">- El proveedor acepta los términos y condiciones de la orden de compra.</div>
-          <div>- El proveedor se obliga a entregar productos/servicios de acuerdo a las características especificadas, garantizando que los <strong>PackingList</strong>, o el servicio son de primera calidad.</div>
-          <div>- Emitir factura (s) y guía (s), exclusivamente por esta orden de compra.</div>
+          <div>- El proveedor se obliga a entregar productos/servicios de acuerdo a las características especificadas, garantizando que los productos y suministros, o el servicio son de primera calidad.</div>
+          <div>- Emitir factura (s) y PackingList, exclusivamente por esta orden de compra.</div>
           <div>- La Factura deberá consignar las referencias de la orden de compra.</div>
           <div>- Enviar Factura en formato PDF, XML y Packing List.</div>
         </div>
