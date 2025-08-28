@@ -81,7 +81,7 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ data }) => {
             <div><strong>Condiciones de Pago: </strong> {condiciones.BOCODFRMPAG}</div>
             <div className="mt-1"><strong>Moneda: </strong> {cabecera.EUDSCABRMON} {cabecera.EUDSCCORMON}</div>
             <div className="mt-1"><strong>Tipo Orden : </strong></div>
-            <div className="mt-1"><strong>Origen Orden : </strong></div>
+            <div className="mt-1"><strong>Origen Orden : Importada</strong></div>
             <div className="mt-1"><strong>Incoterms : </strong>{cabecera.BMNROINCOTERMS}</div>
             <div className="mt-1"><strong>Pais: </strong> {cabecera.FEDSCCOR} {cabecera.FEDSCLAR}</div>
             <div className="mt-1"><strong>Fecha de atencion: </strong> {cabecera.fecha_atencion}</div>
