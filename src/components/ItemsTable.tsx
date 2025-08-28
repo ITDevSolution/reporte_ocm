@@ -65,7 +65,7 @@ const ItemsTable: React.FC<ItemsTableProps> = ({ data }) => {
                 <td className="border border-document-border p-2 text-xs">{item.MDCODLIN}</td>
                 <td className="border border-document-border p-2 text-xs">{item.MDCODART}</td>
                 <td className="border border-document-border p-2 text-xs">{item.MDCODORI}</td>
-                <td className="border border-document-border p-2 text-xs">{item.MDCODMAR}</td>
+                <td className="border border-document-border p-2 text-xs">{item.MKEYDSCLAR}</td>
                 <td className="border border-document-border p-2 text-xs">{item.MDCODFAB}</td>
                 <td className="border border-document-border p-2 text-xs">{item.EDDESART}</td>
                 <td className="border border-document-border p-2 text-xs text-center">{item.MDCANCOM}</td>
