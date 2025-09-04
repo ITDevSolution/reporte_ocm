@@ -46,9 +46,10 @@ const ItemsTable: React.FC<ItemsTableProps> = ({ data }) => {
       <table className="w-full border-collapse border border-document-border">
         <thead>
           <tr className="bg-document-section">
+            <th className="border border-document-border p-0 text-xs font-bold text-center">Item N°</th>
             <th className="border border-document-border p-2 text-xs font-bold text-center">LN</th>
-            <th className="border border-document-border p-2 text-xs font-bold text-center">CODIGO</th>
-            <th className="border border-document-border p-2 text-xs font-bold text-center">ORIGEN</th>
+            <th className="border border-document-border p-2 text-xs font-bold text-center">CODIGO ARTÍCULO</th>
+            <th className="border border-document-border p-1 text-xs font-bold text-center">ORIGEN</th>
             <th className="border border-document-border p-2 text-xs font-bold text-center">MARCA</th>
             <th className="border border-document-border p-2 text-xs font-bold text-center">CODIGO DE FABRICANTE</th>
             <th className="border border-document-border p-2 text-xs font-bold text-center">DESCRIPCION</th>
@@ -62,34 +63,21 @@ const ItemsTable: React.FC<ItemsTableProps> = ({ data }) => {
             const subtotal = calcularSubtotal(item.MDCANCOM, item.MDPREUNI);
             return (
               <tr key={index} className="border-b">
-                <td className="border border-document-border p-2 text-xs">{item.MDCODLIN}</td>
+                <td className="border border-document-border p-2 text-xs text-center">{index+1}</td>
+                <td className="border border-document-border p-2 text-xs text-center">{item.MDCODLIN}</td>
                 <td className="border border-document-border p-2 text-xs">{item.MDCODART}</td>
-                <td className="border border-document-border p-2 text-xs">{item.MDCODORI}</td>
-                <td className="border border-document-border p-2 text-xs">{item.MKEYDSCLAR}</td>
+                <td className="border border-document-border p-2 text-xs text-center">{item.MDCODORI}</td>
+                <td className="border border-document-border p-2 text-xs">{item.MDCODMAR} {item.MKEYDSCLAR}</td>
                 <td className="border border-document-border p-2 text-xs">{item.MDCODFAB}</td>
                 <td className="border border-document-border p-2 text-xs">{item.EDDESART}</td>
                 <td className="border border-document-border p-2 text-xs text-center">{item.MDCANCOM}</td>
-                <td className="border border-document-border p-2 text-xs text-center">{item.MDPREUNI}</td>
+                <td className="border border-document-border p-2 text-xs text-center">{formatoMoneda(parseFloat(item.MDPREUNI))}</td>
                 <td className="border border-document-border p-2 text-xs text-center">
                   {formatoMoneda(subtotal)}
                 </td>
               </tr>
             );
           })}
-          {/* Empty rows for spacing */}
-          {Array.from({ length: Math.max(0, 10 - items.length) }).map((_, index) => (
-            <tr key={`empty-${index}`}>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-              <td className="border border-document-border p-2 text-xs">&nbsp;</td>
-            </tr>
-          ))}
         </tbody>
       </table>
       

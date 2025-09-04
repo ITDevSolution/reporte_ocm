@@ -8,8 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Printer,Loader2 } from 'lucide-react';
 import { useOCMData } from '@/hooks/useOCMData';
 import { useSearchParams } from 'react-router-dom';
+// import { usePrintHorizontal } from '@/hooks/usePrintHorizontal';
 
 const Index = () => {
+  // usePrintHorizontal();
   const [searchParams] = useSearchParams();
   const company = searchParams.get('company') || '10';
   const branch = searchParams.get('branch') || '01';
@@ -56,7 +58,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Print Button */}
         <div className="no-print mb-4 flex justify-end">
           <Button onClick={handlePrint} className="flex items-center gap-2">
