@@ -68,7 +68,7 @@ const Index = () => {
         </div>
         
         {/* Document Container */}
-        <div className="document-container bg-white shadow-lg rounded-lg p-6">
+        <div className="document-container bg-white shadow-lg rounded-lg p-3">
           <DocumentHeader data={data}/>
           <OrderInfo data={data}/>
           <ItemsTable data={data}/>

@@ -61,11 +61,11 @@ const DocumentHeader: React.FC<DocumentHeaderProps> = ({ data })  => {
   };
     
   return (
-    <div className="border-document-border p-4">
+    <div className="border-document-border p-0 mb-5">
       <div className="flex items-start justify-between">
         {/* Logo Section */}
-        <div className="flex flex-col items-center space-y-2">
-          <div className="w-34 h-24 flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-0">
+          <div className="w-32 h-20 flex items-center justify-center">
             <img 
               src="/mym_logo.png" 
               alt="Logo M&M" 
@@ -78,26 +78,29 @@ const DocumentHeader: React.FC<DocumentHeaderProps> = ({ data })  => {
               }}
             />
           </div>
-          <div className="text-document-text text-left">
+          <div className="text-gray-600 font-bold text-left">
             <div className="font-bold text-sm">{empresa.RAZONSOC}</div>
             <div className="text-xs">RUC.: {empresa.RUCCIA}</div>
             <div className="text-xs">Ofc Principal: Av. Nicolas Arriola 1723 - La Victoria</div>
-            <div className="text-xs">Ofc: CAL.LOS TAPICEROS NRO. 280 LIMA - LIMA - ATE</div>
-            <div className="text-xs">Telf.: 613-1500 Fax: 613-1514 -La Victoria - Lima - Perú</div>
+            <div className="text-xs">Ofc: Cal.Los Tapiceros Nro. 280 Lima - Lima - Ate</div>
+            <div className="text-xs">Telf: 613-1500 Fax: 613-1514 -La Victoria - Lima - Perú</div>
           </div>
         </div>
         
         {/* Order Info */}
-        <div className="text-right">
-          <div className="py-2 font-bold text-2xl rounded">
+        <div className="text-left">
+          <div className="py-0 text-document-primary font-bold text-2xl">
             ORDEN DE COMPRA
           </div>
-          <div className="mt-4 text-lg"><strong>OC N°: {numeroOCM}</strong></div>
-          <div className="text-document-text text-right text-xs mt-4">
-            <div >Fecha Emisión: {formatFecha(cabecera.MCFECOCM)}</div>
-            <div >Contacto: {vendedor.BMPRNOMBV} {vendedor.BMSGNOMBV} {vendedor.BMPRAPLLV} {vendedor.BMSGAPLLV}</div>
-            <div >Correo: dmiranda@mym.com.pe</div>
-            <div >Celular: 939217383</div>
+          <div className="text-document-primary font-bold text-lg">OCM: <span className='text-gray-600'>{numeroOCM}</span></div>
+          <div className="text-document-text text-xs mt-5">
+            <div className='text-gray-600 font-bold'>Fecha Emisión: {formatFecha(cabecera.MCFECOCM)}
+            </div>
+            <div className='text-gray-600 font-bold'>Contacto:  
+               {vendedor.BMPRNOMBV} {vendedor.BMSGNOMBV} {vendedor.BMPRAPLLV} {vendedor.BMSGAPLLV}
+            </div>
+            <div className='text-gray-600 font-bold'>Correo: dmiranda@mym.com.pe</div>
+            <div className='text-gray-600 font-bold'>Celular: 939217383</div>
           </div>
         </div>
       </div>

@@ -39,12 +39,26 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Document specific colors */
-    --document-header: 210 100% 50%;
-    --document-section: 210 20% 95%;
-    --document-border: 0 0% 80%;
-    --document-text: 0 0% 20%;
-    --document-muted: 0 0% 60%;
+    /* Document specific colors - M&M Professional Theme */
+    --document-primary: 210 100% 45%;     /* Deep blue from logo */
+    --document-secondary: 195 100% 65%;   /* Light blue/cyan from logo */
+    --document-accent: 210 100% 85%;      /* Very light blue */
+    --document-header: 210 100% 45%;
+    --document-section: 210 20% 98%;
+    --document-border: 210 30% 90%;
+    --document-text: 210 20% 15%;
+    --document-muted: 210 15% 55%;
+    --document-white: 0 0% 100%;
+    
+    /* Gradients for professional look */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--document-primary)), hsl(var(--document-secondary)));
+    --gradient-header: linear-gradient(90deg, hsl(var(--document-primary)), hsl(var(--document-secondary)));
+    --gradient-accent: linear-gradient(180deg, hsl(var(--document-accent)), hsl(var(--document-white)));
+    
+    /* Professional shadows */
+    --shadow-card: 0 4px 20px -4px hsl(var(--document-primary) / 0.15);
+    --shadow-header: 0 8px 32px -8px hsl(var(--document-primary) / 0.3);
+    --shadow-subtle: 0 2px 12px -2px hsl(var(--document-border) / 0.4);
   }
 
   .dark {
@@ -96,7 +110,7 @@ All colors MUST be HSL.
 }
 
 /* Print styles */
-@media print {
+/* @media print {
   body {
     font-size: 12px;
   }
@@ -109,4 +123,93 @@ All colors MUST be HSL.
     box-shadow: none;
     border: none;
   }
+} */
+
+/* Print styles - Mantener colores y diseño */
+@media print {
+  @page {
+    size: A4 portrait;
+    /* margin: 0.5in; */
+    margin: 0.3cm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  body {
+    font-size: 10px;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .document-container {
+    box-shadow: 0 4px 20px -4px hsl(var(--document-primary) / 0.15) !important;
+    border: 1px solid hsl(var(--document-border)) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 0.5rem !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .max-w-3xl {
+    max-width: none !important;
+    margin: 0 !important;
+  }
+  
+  /* Optimizar tabla para landscape */
+  /* table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    font-size: 8px !important;
+  }
+  
+  th, td {
+    font-size: 8px !important;
+    padding: 1px 2px !important;
+    word-wrap: break-word !important;
+  } */
+
+  .max-w-\\[120px\\] {
+    max-width: 100px !important;
+  }
+  
+  /* Asegurar que todos los elementos se muestren */
+  .overflow-hidden {
+    overflow: visible !important;
+  }
+  
+  /* Forzar que los gradientes se mantengan */
+  .bg-gradient-header,
+  .bg-gradient-primary,
+  .bg-gradient-accent {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Mantener todos los colores de fondo */
+  [class*="bg-"],
+  [class*="text-"],
+  [style*="background"],
+  [style*="color"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Asegurar que las sombras se mantengan */
+  [class*="shadow-"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
+

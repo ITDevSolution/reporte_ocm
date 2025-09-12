@@ -12,6 +12,7 @@ interface OrderInfoProps {
       FEDSCCOR: string;
       FEDSCLAR: string;
       fecha_atencion: string;
+      nombre_puerto: string;
     };
     vendedor?: {
       BMPRNOMBV: string;
@@ -27,9 +28,17 @@ interface OrderInfoProps {
       BOCODFRMPAG: string;
     };
     proveedores?: Array<{
-      AHCODPRV: string;
-      AHRAZSOCPRV: string;
+      PRCODPRV: string;
+      PRRAZSOC: string;
+      PRCORREO: string;
+      PRCONTAC: string;
     }>;
+    proveedorAlternativo?: {
+      PRCODPRV: string;
+      PRRAZSOC: string;
+      PRCORREO: string;
+      PRCONTAC: string;
+    };
   };
 }
 
@@ -37,7 +46,11 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ data }) => {
   const cabecera = data?.cabecera || {};
   const vendedor = data?.vendedor || {};
   const condiciones = data?.condiciones || {};
-  const proveedores = data?.proveedores || [];
+  const proveedores = (data?.proveedores && data.proveedores.length > 0
+      ? data.proveedores
+      : data?.proveedorAlternativo
+      ? [data.proveedorAlternativo] // si existe proveedorAlternativo se convierte a array
+      : []);
 
   // Formatear fecha si existe
   const formatFecha = (fechaStr: string) => {
@@ -49,28 +62,29 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ data }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-1 mb-1">
+    <div className="grid grid-cols-2 gap-2 mb-4 mt-2">
       {/* Left Column */}
       <div className="space-y-4">        
-        <div className="p-3 text-xs">
+        <div className="p-0 text-xs">
           {proveedores.map((item, index) => (
             <div key={index}>
-              <div className="mt-1"><strong>Proveedor: </strong> {item.AHCODPRV}</div>
-              <div className="mt-1"><strong>Razon Social: </strong> {item.AHRAZSOCPRV}</div>
+              <div className="text-document-primary font-bold"><strong>Proveedor: </strong> <span className='text-gray-600'>{item.PRCODPRV}</span></div>
+              <div className="text-document-primary font-bold"><strong>Razon Social: </strong> <span className='text-gray-600'>{item.PRRAZSOC}</span></div>
+              <div className="text-document-primary font-bold"><strong>Contacto: </strong> <span className='text-gray-600'>{item.PRCORREO}</span></div>
+              <div className="text-document-primary font-bold"><strong>Correo: </strong> <span className='text-gray-600'>{item.PRCONTAC}</span></div>
             </div>
           ))}
-          <div className="mt-1"><strong>Dirección: </strong>AV. Rua Sadao Takagi 2000</div>
+          <div className="text-document-primary font-bold"><strong>Pais: </strong> <span className='text-gray-600'>{cabecera.FEDSCCOR}</span></div>
         </div>
       </div>
       {/* Right Column */}
-      <div className="space-y-4">
-        <div className="p-3 text-xs">
-            <div><strong>Condiciones de Pago: </strong> {condiciones.BOCODFRMPAG}</div>
-            <div className="mt-1"><strong>Moneda: </strong> {cabecera.EUDSCABRMON} {cabecera.EUDSCCORMON}</div>
-            <div className="mt-1"><strong>Incoterms : </strong>{cabecera.BMNROINCOTERMS} + Puerto</div>
-            <div className="mt-1"><strong>Pais: </strong> {cabecera.FEDSCCOR} {cabecera.FEDSCLAR}</div>
-            <div className="mt-1"><strong>Fecha de atencion: </strong> {cabecera.fecha_atencion}</div>
-        </div>
+      <div className="space-y-1">
+        <div className="p-0 text-xs">  
+          <div className='text-document-primary font-bold'><strong>Condiciones de Pago:</strong> <span className='text-gray-600'>{condiciones.BOCODFRMPAG}</span></div>
+          <div className="text-document-primary font-bold"><strong>Moneda: </strong> <span className='text-gray-600'>{cabecera.EUDSCABRMON} {cabecera.EUDSCCORMON}</span></div>
+          <div className="text-document-primary font-bold"><strong>Incoterms : </strong> <span className='text-gray-600'>{cabecera.BMNROINCOTERMS} {cabecera.nombre_puerto}</span></div>
+          <div className="text-document-primary font-bold"><strong>Fecha de atencion: </strong> <span className='text-gray-600'>{cabecera.fecha_atencion}</span></div>
+       </div>
       </div>
       {/* <div className="p-3 text-xs">
         <div className="grid grid-cols-1 gap-x-4 text-sm">
