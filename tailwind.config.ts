@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,12 +53,26 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				document: {
+					primary: 'hsl(var(--document-primary))',
+					secondary: 'hsl(var(--document-secondary))',
+					accent: 'hsl(var(--document-accent))',
 					header: 'hsl(var(--document-header))',
 					section: 'hsl(var(--document-section))',
 					border: 'hsl(var(--document-border))',
 					text: 'hsl(var(--document-text))',
-					muted: 'hsl(var(--document-muted))'
+					muted: 'hsl(var(--document-muted))',
+					white: 'hsl(var(--document-white))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-header': 'var(--gradient-header)',
+				'gradient-accent': 'var(--gradient-accent)'
+			},
+			boxShadow: {
+				'card': 'var(--shadow-card)',
+				'header': 'var(--shadow-header)',
+				'subtle': 'var(--shadow-subtle)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
