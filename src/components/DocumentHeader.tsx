@@ -31,6 +31,8 @@ interface DocumentHeaderProps {
         NKTELDIR: string;
         NKTELPE1: string;
       };
+      correo: string;
+      celular: string;
     };
   };
 }
@@ -96,11 +98,10 @@ const DocumentHeader: React.FC<DocumentHeaderProps> = ({ data })  => {
           <div className="text-document-text text-xs mt-5">
             <div className='text-gray-600 font-bold'>Fecha Emisión: {formatFecha(cabecera.MCFECOCM)}
             </div>
-            <div className='text-gray-600 font-bold'>Contacto:  
-               {vendedor.BMPRNOMBV} {vendedor.BMSGNOMBV} {vendedor.BMPRAPLLV} {vendedor.BMSGAPLLV}
+            <div className='text-gray-600 font-bold'>Contacto: {vendedor.BMPRNOMBV} {vendedor.BMSGNOMBV} {vendedor.BMPRAPLLV} {vendedor.BMSGAPLLV}
             </div>
-            <div className='text-gray-600 font-bold'>Correo: dmiranda@mym.com.pe</div>
-            <div className='text-gray-600 font-bold'>Celular: 939217383</div>
+            <div className='text-gray-600 font-bold'>Correo: {vendedor.correo}</div>
+            <div className='text-gray-600 font-bold'>Celular: {vendedor.celular}</div>
           </div>
         </div>
       </div>
