@@ -70,8 +70,8 @@ const OrderInfo: React.FC<OrderInfoProps> = ({ data }) => {
             <div key={index}>
               <div className="text-document-primary font-bold"><strong>Proveedor: </strong> <span className='text-gray-600'>{item.PRCODPRV}</span></div>
               <div className="text-document-primary font-bold"><strong>Razon Social: </strong> <span className='text-gray-600'>{item.PRRAZSOC}</span></div>
-              <div className="text-document-primary font-bold"><strong>Contacto: </strong> <span className='text-gray-600'>{item.PRCORREO}</span></div>
-              <div className="text-document-primary font-bold"><strong>Correo: </strong> <span className='text-gray-600'>{item.PRCONTAC}</span></div>
+              <div className="text-document-primary font-bold"><strong>Contacto: </strong> <span className='text-gray-600'>{item.PRCONTAC}</span></div>
+              <div className="text-document-primary font-bold"><strong>Correo: </strong> <span className='text-gray-600'>{item.PRCORREO}</span></div>
             </div>
           ))}
           <div className="text-document-primary font-bold"><strong>Pais: </strong> <span className='text-gray-600'>{cabecera.FEDSCCOR}</span></div>
